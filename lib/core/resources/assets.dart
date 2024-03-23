@@ -12,4 +12,7 @@ class ImageManager extends BasePath {
   static const String characters = '${BasePath._imageBaseUrl}characters/';
   static const String animals = '${BasePath._imageBaseUrl}animals/';
   static const String family = '${BasePath._imageBaseUrl}family/';
+  static const String food = '${BasePath._imageBaseUrl}food/';
+  static const String home = '${BasePath._imageBaseUrl}home/';
+  static const String time = '${BasePath._imageBaseUrl}time/';
 }
