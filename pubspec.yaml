@@ -72,6 +72,12 @@ flutter:
      - assets/images/time/
      - assets/images/food/
      - assets/images/home/
+     - assets/images/education/
+     - assets/images/health/
+     - assets/images/ideas/
+     - assets/images/nature/
+     - assets/images/symptoms/
+     - assets/images/travel/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
