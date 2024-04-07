@@ -1,10 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:signeducation/features/bottom_naviagtor/view/components/provider/item_selected_provider.dart';
 import 'package:signeducation/core/resources/assets.dart';
 import 'package:signeducation/features/categories/models/category_item_model.dart';
 
 import '../../features/lesson/models/lesson_model.dart';
 import 'enums.dart';
+ SelectedItemProiver providerItemSelected(context)=>Provider.of<SelectedItemProiver>(context);
+
+   
 
 const Map<Levels, List<Categories>> levelsMap = {
   Levels.easy: [

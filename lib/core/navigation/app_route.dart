@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:signeducation/core/resources/enums.dart';
-import 'package:signeducation/features/categories/view/pages/categories_view.dart';
 import 'package:signeducation/features/lesson/models/lesson_model.dart';
 import 'package:signeducation/features/lesson/view/pages/lesson_view.dart';
-import 'package:signeducation/features/levels/view/pages/levels_view.dart';
+import 'package:signeducation/features/bottom_naviagtor/view/pages/bottom_navigator_view.dart';
 
 import '../../features/main/view/pages/main_view.dart';
 import '../../features/splash/view/pages/splash_view.dart';
@@ -20,18 +18,10 @@ class AppRoute {
         return
             // CustomPageRoute(const LoginView());
             MaterialPageRoute(builder: (_) => const MainView());
-      case RoutePath.levels:
+      case RoutePath.bottomNavigator:
         return
             // CustomPageRoute(const LoginView());
-            MaterialPageRoute(builder: (_) => const LevelsView());
-      case RoutePath.categories:
-        List<Categories> argument = settings.arguments as List<Categories>;
-        return
-            // CustomPageRoute(const LoginView());
-            MaterialPageRoute(
-                builder: (_) => CategoriesView(
-                      categories: argument,
-                    ));
+            MaterialPageRoute(builder: (_) =>  BottomNavigationView());
       case RoutePath.lesson:
         List<LessonModel> argument = settings.arguments as List<LessonModel>;
         return
@@ -55,7 +45,6 @@ class CustomPageRoute<T> extends PageRoute<T> {
   CustomPageRoute(this.child);
 
   @override
-  // TODO: implement barrierColor
   Color? get barrierColor => null;
 
   @override

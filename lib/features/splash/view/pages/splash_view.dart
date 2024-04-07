@@ -14,7 +14,7 @@ class SplashView extends StatelessWidget {
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       duration: 1000,
       nextScreen: Container(),
-      nextRoute: RoutePath.levels,
+      nextRoute: RoutePath.bottomNavigator,
       splashIconSize: MediaQuery.sizeOf(context).width * 0.8,
     );
   }

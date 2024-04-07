@@ -10,27 +10,23 @@ class CategoriesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: GridView.builder(
-          padding: EdgeInsets.only(
-            right: 10,
-            left: 10,
-            bottom: 10,
-            top: 10,
-          ),
-          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-            maxCrossAxisExtent: getWidth(context) * 0.3,
-            mainAxisExtent: getHeight(context) * 0.06,
-            mainAxisSpacing: 5,
-            crossAxisSpacing: 20,
-          ),
-          itemBuilder: (context, index) => CategoryItem(
-            categoryItem: categoriesMap[categories[index]]!,
-          ),
-          itemCount: categories.length,
-        ),
+    return GridView.builder(
+      padding: const EdgeInsets.only(
+        right: 10,
+        left: 10,
+        bottom: 10,
+        top: 10,
       ),
+      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+        maxCrossAxisExtent: getWidth(context) * 0.5,
+        mainAxisExtent: getHeight(context) * 0.1,
+        mainAxisSpacing: 5,
+        crossAxisSpacing: 20,
+      ),
+      itemBuilder: (context, index) => CategoryItem(
+        categoryItem: categoriesMap[categories[index]]!,
+      ),
+      itemCount: categories.length,
     );
   }
 }

@@ -4,7 +4,7 @@ import 'colors.dart';
 
 ThemeData lightTheme() => ThemeData(
     scaffoldBackgroundColor: ColorManager.backgroundColor,
-    textTheme: TextTheme(
+    textTheme: const TextTheme(
       bodyMedium: TextStyle(color: Colors.black),
       bodyLarge: TextStyle(color: Colors.black),
       titleMedium: TextStyle(color: Colors.black),
@@ -16,11 +16,11 @@ ThemeData lightTheme() => ThemeData(
     textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
       textStyle: MaterialStateTextStyle.resolveWith(
-          (states) => TextStyle(decoration: TextDecoration.none)),
+          (states) => const TextStyle(decoration: TextDecoration.none)),
       foregroundColor:
           MaterialStateColor.resolveWith((states) => ColorManager.textColor),
     )),
-    iconTheme: IconThemeData(color: Colors.black),
+    iconTheme: const IconThemeData(color: Colors.black),
     inputDecorationTheme: InputDecorationTheme(
       labelStyle: TextStyle(color: Colors.grey.shade700),
       border: const OutlineInputBorder(),
@@ -30,8 +30,8 @@ ThemeData lightTheme() => ThemeData(
       focusedBorder: const OutlineInputBorder(),
       focusedErrorBorder: const OutlineInputBorder(),
     ),
-    listTileTheme: ListTileThemeData(),
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    listTileTheme:const ListTileThemeData(),
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         backgroundColor: Colors.white,
         unselectedItemColor: Colors.blueGrey,
         selectedIconTheme: IconThemeData(color: ColorManager.primaryColor)),
@@ -43,7 +43,7 @@ ThemeData lightTheme() => ThemeData(
     radioTheme: RadioThemeData(
         fillColor: MaterialStateColor.resolveWith((states) => Colors.black)),
     dialogBackgroundColor: ColorManager.backgroundColor,
-    dialogTheme: DialogTheme(
+    dialogTheme: const DialogTheme(
         backgroundColor: ColorManager.backgroundColor,
         surfaceTintColor: ColorManager.backgroundColor),
     popupMenuTheme: PopupMenuThemeData(
@@ -69,23 +69,23 @@ ThemeData lightTheme() => ThemeData(
           MaterialStateColor.resolveWith((states) => Colors.white),*/
       // yearStyle: TextStyle(color: Colors.white),
     ),
-    floatingActionButtonTheme: FloatingActionButtonThemeData(
+    floatingActionButtonTheme:const  FloatingActionButtonThemeData(
       backgroundColor: ColorManager.primaryColor,
       foregroundColor: Colors.white,
     ),
-    checkboxTheme: CheckboxThemeData());
+    checkboxTheme:const  CheckboxThemeData());
 ThemeData darkTheme() => ThemeData(
     scaffoldBackgroundColor: ColorManager.darkBackgroundColor,
     textButtonTheme: TextButtonThemeData(
       style: ButtonStyle(
         textStyle: MaterialStateTextStyle.resolveWith(
-            (states) => TextStyle(decoration: TextDecoration.underline)),
+            (states) => const TextStyle(decoration: TextDecoration.underline)),
         foregroundColor: MaterialStateColor.resolveWith(
             (states) => ColorManager.darkTextColor /*darkTextButtonColor*/),
       ),
     ),
-    iconTheme: IconThemeData(color: Colors.white),
-    textTheme: TextTheme(
+    iconTheme: const IconThemeData(color: Colors.white),
+    textTheme: const TextTheme(
       bodyMedium: TextStyle(color: ColorManager.darkTextColor),
       bodyLarge: TextStyle(color: ColorManager.darkTextColor),
       titleMedium: TextStyle(color: ColorManager.darkTextColor),
@@ -94,35 +94,35 @@ ThemeData darkTheme() => ThemeData(
       headlineSmall: TextStyle(color: ColorManager.darkTextColor),
       headlineLarge: TextStyle(color: ColorManager.darkTextColor),
     ),
-    inputDecorationTheme: InputDecorationTheme(
+    inputDecorationTheme:const InputDecorationTheme(
       labelStyle: TextStyle(color: ColorManager.darkTextColor),
       hintStyle: TextStyle(color: ColorManager.darkTextColor),
-      border: const OutlineInputBorder(
+      border:  OutlineInputBorder(
           borderSide: BorderSide(
             color: ColorManager.darkSecondaryColor,
           ),
           borderRadius: BorderRadius.zero),
-      errorBorder: const OutlineInputBorder(
+      errorBorder:  OutlineInputBorder(
           borderSide: BorderSide(color: ColorManager.darkSecondaryColor),
           borderRadius: BorderRadius.zero),
-      enabledBorder: const OutlineInputBorder(
+      enabledBorder:  OutlineInputBorder(
           borderSide: BorderSide(color: ColorManager.darkSecondaryColor),
           borderRadius: BorderRadius.zero),
-      disabledBorder: const OutlineInputBorder(
+      disabledBorder:  OutlineInputBorder(
           borderSide: BorderSide(color: ColorManager.darkSecondaryColor),
           borderRadius: BorderRadius.zero),
-      focusedBorder: const OutlineInputBorder(
+      focusedBorder:  OutlineInputBorder(
           borderSide: BorderSide(color: ColorManager.darkSecondaryColor),
           borderRadius: BorderRadius.zero),
-      focusedErrorBorder: const OutlineInputBorder(
+      focusedErrorBorder:  OutlineInputBorder(
           borderSide: BorderSide(color: ColorManager.darkSecondaryColor),
           borderRadius: BorderRadius.zero),
     ),
-    listTileTheme: ListTileThemeData(
+    listTileTheme: const ListTileThemeData(
       iconColor: Colors.white,
       textColor: Colors.white,
     ),
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       // backgroundColor: ColorManager.primaryColor,
       unselectedItemColor: ColorManager.secondaryColor,
 
@@ -130,9 +130,9 @@ ThemeData darkTheme() => ThemeData(
       showUnselectedLabels: false,
       // selectedIconTheme: IconThemeData(color: ColorManager.secondaryColor),
     ),
-    progressIndicatorTheme:
+    progressIndicatorTheme:const 
         ProgressIndicatorThemeData(color: ColorManager.darkTextColor),
-    expansionTileTheme: ExpansionTileThemeData(
+    expansionTileTheme:const  ExpansionTileThemeData(
         collapsedBackgroundColor: ColorManager.cursorColor,
         backgroundColor: ColorManager.cursorColor,
         iconColor: Colors.white,
@@ -141,7 +141,7 @@ ThemeData darkTheme() => ThemeData(
         fillColor: MaterialStateColor.resolveWith(
             (states) => ColorManager.darkSecondaryColor)),
     dialogBackgroundColor: ColorManager.darkBackgroundColor,
-    dialogTheme: DialogTheme(
+    dialogTheme: const DialogTheme(
         backgroundColor: ColorManager.darkBackgroundColor,
         surfaceTintColor: ColorManager.darkBackgroundColor),
     popupMenuTheme: PopupMenuThemeData(
@@ -165,15 +165,15 @@ ThemeData darkTheme() => ThemeData(
           MaterialStateColor.resolveWith((states) => ColorManager.primaryColor),*/
         /*todayForegroundColor:
           MaterialStateColor.resolveWith((states) => Colors.white),*/
-        dayStyle: TextStyle(color: Colors.white),
-        weekdayStyle: TextStyle(color: Colors.white),
-        yearStyle: TextStyle(color: Colors.white),
+        dayStyle: const TextStyle(color: Colors.white),
+        weekdayStyle: const TextStyle(color: Colors.white),
+        yearStyle: const TextStyle(color: Colors.white),
         headerForegroundColor: Colors.white,
         // headerHeadlineStyle: TextStyle(color: Colors.white),
         // headerBackgroundColor: Colors.white,
-        headerHelpStyle: TextStyle(color: Colors.white)),
-    floatingActionButtonTheme: FloatingActionButtonThemeData(
+        headerHelpStyle: const TextStyle(color: Colors.white)),
+    floatingActionButtonTheme: const FloatingActionButtonThemeData(
       backgroundColor: ColorManager.primaryColor,
       foregroundColor: Colors.white,
     ),
-    checkboxTheme: CheckboxThemeData(side: BorderSide(color: Colors.white)));
+    checkboxTheme:const  CheckboxThemeData(side: BorderSide(color: Colors.white)));
