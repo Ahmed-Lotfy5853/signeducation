@@ -1,20 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:signeducation/core/navigation/route_path.dart';
+import 'package:signeducation/core/resources/enums.dart';
 import 'package:signeducation/features/categories/models/category_item_model.dart';
+import 'package:signeducation/features/lesson/view/pages/lesson_view.dart';
 
 import '../../../../core/resources/constants.dart';
 
 class CategoryItem extends StatelessWidget {
-  const CategoryItem({super.key, required this.categoryItem});
+  const CategoryItem({super.key, required this.categoryItem,required this.level,required this.category});
 
   final CategoryItemModel categoryItem;
-
+  final Levels level;
+  final Categories category;
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, RoutePath.lesson,
-            arguments: categoriesMap[categoryItem.category]!.lessons);
+          Navigator.of(context).push(MaterialPageRoute(
+                builder: (_) => LessonView(
+                      lessons: categoriesMap[categoryItem.category]!.lessons,
+                      level: level,
+                      category: category,
+                    )));
       },
       child: Column(
         children: [

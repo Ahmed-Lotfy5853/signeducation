@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:signeducation/core/local_data/shared_preferenc.dart';
+import 'package:signeducation/core/resources/constants.dart';
 import 'package:signeducation/features/bottom_naviagtor/view/components/provider/item_selected_provider.dart';
 import 'package:signeducation/core/resources/colors.dart';
 import 'core/navigation/app_route.dart';
 import 'core/navigation/route_path.dart';
 
 void main() {
-  runApp(const MyApp());
+    WidgetsFlutterBinding.ensureInitialized();
+    SharedPreference.getLogin().then((value) {
+      checkLogin=value??false;
+       runApp(const MyApp());
+    });
+ 
 }
 
 class MyApp extends StatelessWidget {
@@ -31,5 +38,5 @@ class MyApp extends StatelessWidget {
         // home: const SplashView(),
       ),
     );
-  }
+  } 
 }

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:signeducation/core/navigation/route_path.dart';
 import 'package:signeducation/core/resources/constants.dart';
 import 'package:signeducation/core/resources/enums.dart';
-import 'package:signeducation/features/bottom_naviagtor/view/pages/inside_pages/back_view.dart';
+import 'package:signeducation/features/bottom_naviagtor/view/pages/inside_pages/back.dart';
 import 'package:signeducation/features/bottom_naviagtor/view/pages/inside_pages/help_view.dart';
 import 'package:signeducation/features/bottom_naviagtor/view/pages/inside_pages/home_view.dart';
 import 'package:signeducation/features/categories/view/pages/categories_view.dart';
@@ -12,9 +13,9 @@ class BottomNavigationView extends StatelessWidget {
     const Help(),
     const Home(),
     const Back(),
-    CategoriesView(categories: levelsMap[Levels.easy]!),
-    CategoriesView(categories: levelsMap[Levels.medium]!),
-    CategoriesView(categories: levelsMap[Levels.hard]!)
+    CategoriesView(categories: levelsMap[Levels.easy]!,level: Levels.easy,),
+    CategoriesView(categories: levelsMap[Levels.medium]!,level: Levels.medium,),
+    CategoriesView(categories: levelsMap[Levels.hard]!,level: Levels.hard,),
   ];
   final titles = ['Help', 'Home', 'Back','سهل','متوسط','صعب'];
   final bottomItems=const [
@@ -36,7 +37,15 @@ class BottomNavigationView extends StatelessWidget {
         items: bottomItems,
         currentIndex: provider.selectedItem <bottomItems.length?provider.selectedItem :1,
         onTap: (int currentIndex) {
-          provider.currentItem(currentIndex);
+          if(currentIndex==2)
+          {
+            Navigator.of(context).pushReplacementNamed(RoutePath.splash);
+            provider.currentItem(1);
+          }
+          else{
+               provider.currentItem(currentIndex);
+          }
+         
         },
       ),
     );
