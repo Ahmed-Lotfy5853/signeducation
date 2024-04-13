@@ -1,7 +1,8 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:signeducation/core/responsive_and_adaptive/responsive.dart';
 
- CustomListTile(Icon icon,String text,context)
+ customListTile(Icon icon,String text,context)
 {
   return Card(margin: EdgeInsets.symmetric(
     horizontal: getWidth(context)*0.02,

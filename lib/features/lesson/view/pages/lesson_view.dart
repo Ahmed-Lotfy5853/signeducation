@@ -1,8 +1,5 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
-import 'package:signeducation/core/resources/constants.dart';
-import 'package:signeducation/core/resources/enums.dart';
 import 'package:signeducation/core/responsive_and_adaptive/responsive.dart';
 import 'package:signeducation/features/lesson/view/components/lesson_cover.dart';
 
@@ -10,21 +7,21 @@ import '../../models/lesson_model.dart';
 import '../components/lesson_item.dart';
 
 class LessonView extends StatefulWidget {
-   LessonView({super.key, required this.lessons,required this.level,required this.category});
+  const LessonView(
+      {super.key,
+      required this.lessons,
+     });
   final List<LessonModel> lessons;
-  final Levels level;
-  final Categories category;
-  late var list=generateList(lessons.length);
+
 
   @override
   State<LessonView> createState() => _LessonViewState();
 }
+
 class _LessonViewState extends State<LessonView> {
   int globalIndex = 0;
   @override
   Widget build(BuildContext context) {
-    print(widget.level);
-    print(widget.category);
     double width = getWidth(context);
     double containerWidth = width * 0.8;
     double containerHeight = getHeight(context) * 0.2;
@@ -104,13 +101,11 @@ class _LessonViewState extends State<LessonView> {
                   mainAxisSpacing: 5,
                 ),
                 itemBuilder: (context, index) => LessonItem(
-                   check: widget.list[index],
                   label: widget.lessons[index].name,
                   tap: () {
                     log('globalIndex $globalIndex');
                     setState(() {
                       globalIndex = index;
-                      widget.list[index]=true;
                     });
                   },
                 ),

@@ -7,14 +7,11 @@ import 'package:signeducation/features/categories/models/category_item_model.dar
 
 import '../../features/lesson/models/lesson_model.dart';
 import 'enums.dart';
- SelectedItemProiver providerItemSelected(context)=>Provider.of<SelectedItemProiver>(context);
- bool checkLogin = false;
- // check level compeleted or not
-List<bool> generateList(int len)
-{
-  return List.generate(len, (index)=>index==0?true:false);
-}
- 
+
+SelectedItemProiver providerItemSelected(context) =>
+    Provider.of<SelectedItemProiver>(context);
+bool checkLogin = false;
+var checkLevelCompeleted=<String>[];
 
 const Map<Levels, List<Categories>> levelsMap = {
   Levels.easy: [
@@ -44,7 +41,6 @@ Map<Categories, CategoryItemModel> categoriesMap = {
     category: Categories.numbers,
     cover: '${ImageManager.categories}0.png',
     lessons: numbers,
-    
     backgroundColor: Colors.green,
   ),
   Categories.characters: CategoryItemModel(

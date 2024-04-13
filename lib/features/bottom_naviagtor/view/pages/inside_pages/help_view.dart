@@ -10,16 +10,16 @@ class Help extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Spacer(flex: 2,),
+       const Spacer(flex: 2,),
         CircleAvatar(
           radius: getHeight(context)*0.03,
-          backgroundImage: AssetImage('assets/images/help.png'),
+          backgroundImage: const AssetImage('assets/images/help.png'),
         ),
-        Spacer(flex: 1,),
-        CustomListTile(const Icon(Icons.phone),'الدعم الفنى',context),
-        CustomListTile(const Icon(Icons.settings),'الإعدادات',context),
-        CustomListTile(const Icon(Icons.report),'شكاوي',context),
-        Spacer(flex: 5,),
+        const Spacer(flex: 1,),
+        customListTile(const Icon(Icons.phone),'الدعم الفنى',context),
+        customListTile(const Icon(Icons.settings),'الإعدادات',context),
+        customListTile(const Icon(Icons.report),'شكاوي',context),
+        const Spacer(flex: 5,),
       ],
     );
   }

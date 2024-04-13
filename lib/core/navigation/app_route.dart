@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:signeducation/core/resources/enums.dart';
 import 'package:signeducation/features/lesson/models/lesson_model.dart';
 import 'package:signeducation/features/lesson/view/pages/lesson_view.dart';
 import 'package:signeducation/features/bottom_naviagtor/view/pages/bottom_navigator_view.dart';
@@ -14,7 +13,7 @@ class AppRoute {
     switch (settings.name) {
       //Core
       case RoutePath.splash:
-        return MaterialPageRoute(builder: (_) =>  SplashView());
+        return MaterialPageRoute(builder: (_) =>  const SplashView());
       case RoutePath.welcome :
       return MaterialPageRoute(builder: (_) => const WelcomeView());
       case RoutePath.main:
@@ -32,10 +31,7 @@ class AppRoute {
             MaterialPageRoute(
                 builder: (_) => LessonView(
                       lessons: argument,
-                      level: Levels.easy,
-                      category: Categories.animals,
                     ));
-
       default:
         return MaterialPageRoute(
           builder: (_) => const MainView(),

@@ -14,4 +14,15 @@ class SharedPreference{
     var preferences=await SharedPreferences.getInstance();
     return await preferences.setBool(loginUser, check);
   }
+
+static Future<void> storeStringList(String key, List<String> value) async {
+  final prefs = await SharedPreferences.getInstance();
+  await prefs.setStringList(key, value);
+}
+
+static Future<List<String>?> getStringList(String key) async {
+  final prefs = await SharedPreferences.getInstance();
+  return prefs.getStringList(key);
+}
+
 }

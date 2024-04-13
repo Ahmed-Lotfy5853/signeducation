@@ -39,7 +39,7 @@ class BottomNavigationView extends StatelessWidget {
         onTap: (int currentIndex) {
           if(currentIndex==2)
           {
-            Navigator.of(context).pushReplacementNamed(RoutePath.splash);
+            Navigator.of(context).pushReplacementNamed(RoutePath.welcome);
             provider.currentItem(1);
           }
           else{

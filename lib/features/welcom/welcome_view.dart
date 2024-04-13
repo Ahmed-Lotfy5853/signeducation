@@ -16,9 +16,7 @@ class WelcomeView extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Spacer(
-              flex: 1,
-            ),
+            const Spacer(flex: 1),
             //item1
             Text(
               "Smart-Learn",
@@ -46,7 +44,7 @@ class WelcomeView extends StatelessWidget {
               child: ElevatedButton(
                 style: ButtonStyle(
                     backgroundColor:
-                        MaterialStateProperty.all(Color(0xff3855A5))),
+                        MaterialStateProperty.all(const Color(0xff3855A5))),
                 onPressed: () {
                   SharedPreference.setLogin(true).then((value) =>
                       Navigator.of(context)
@@ -62,9 +60,7 @@ class WelcomeView extends StatelessWidget {
                 ),
               ),
             ),
-            Spacer(
-              flex: 1,
-            ),
+           const Spacer(flex: 1),
           ],
         ),
       ),

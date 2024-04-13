@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:signeducation/core/responsive_and_adaptive/responsive.dart';
 //required this.index ,required this.check
 class LessonItem extends StatelessWidget {
-   LessonItem({super.key, required this.label, required this.tap,required this.check});
+   const LessonItem({super.key, required this.label, required this.tap,});
 
   final String label;
-   final bool check;
   final void Function() tap;
   @override
   Widget build(BuildContext context) {
@@ -19,7 +18,7 @@ class LessonItem extends StatelessWidget {
         height: getHeight(context) * 0.025,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: check ?Colors.green:Colors.grey.shade200,
+          color: Colors.grey.shade200,
           borderRadius: BorderRadius.circular(15),
         ),
         child: Text(

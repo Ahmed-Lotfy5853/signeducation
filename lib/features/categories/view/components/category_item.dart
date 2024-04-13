@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:signeducation/core/local_data/shared_preferenc.dart';
 import 'package:signeducation/core/navigation/route_path.dart';
 import 'package:signeducation/core/resources/enums.dart';
 import 'package:signeducation/features/categories/models/category_item_model.dart';
-import 'package:signeducation/features/lesson/view/pages/lesson_view.dart';
 
 import '../../../../core/resources/constants.dart';
 
 class CategoryItem extends StatelessWidget {
-  const CategoryItem({super.key, required this.categoryItem,required this.level,required this.category});
-
+  const CategoryItem(
+      {super.key,
+      required this.categoryItem,
+      required this.level,
+      required this.category});
   final CategoryItemModel categoryItem;
   final Levels level;
   final Categories category;
@@ -16,12 +19,15 @@ class CategoryItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-          Navigator.of(context).push(MaterialPageRoute(
-                builder: (_) => LessonView(
-                      lessons: categoriesMap[categoryItem.category]!.lessons,
-                      level: level,
-                      category: category,
-                    )));
+        //check if element is existed before or not
+        if (!checkLevelCompeleted.contains(categoryItem.title)) {
+          checkLevelCompeleted.add(categoryItem.title);
+        }
+        // set data ,then go lesson screen
+        SharedPreference.storeStringList('category', checkLevelCompeleted).then((value) {
+              Navigator.of(context).pushNamed(RoutePath.lesson,
+              arguments: categoriesMap[categoryItem.category]!.lessons);
+        });
       },
       child: Column(
         children: [

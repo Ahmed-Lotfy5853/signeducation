@@ -6,7 +6,7 @@ import '../../../../core/navigation/route_path.dart';
 import '../../../../core/resources/assets.dart';
 
 class SplashView extends StatelessWidget {
-   SplashView({super.key});
+   const SplashView({super.key});
   @override
   Widget build(BuildContext context) {
     return AnimatedSplashScreen(
