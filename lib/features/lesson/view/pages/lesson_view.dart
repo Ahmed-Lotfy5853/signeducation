@@ -1,5 +1,7 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
+import 'package:signeducation/core/local_data/shared_preferenc.dart';
+import 'package:signeducation/core/resources/constants.dart';
 import 'package:signeducation/core/responsive_and_adaptive/responsive.dart';
 import 'package:signeducation/features/lesson/view/components/lesson_cover.dart';
 
@@ -7,19 +9,18 @@ import '../../models/lesson_model.dart';
 import '../components/lesson_item.dart';
 
 class LessonView extends StatefulWidget {
-  const LessonView(
-      {super.key,
-      required this.lessons,
-     });
+  const LessonView({
+    super.key,
+    required this.lessons,
+  });
   final List<LessonModel> lessons;
-
-
   @override
   State<LessonView> createState() => _LessonViewState();
 }
 
 class _LessonViewState extends State<LessonView> {
   int globalIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     double width = getWidth(context);
@@ -41,10 +42,6 @@ class _LessonViewState extends State<LessonView> {
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(15),
-                    // border: Border.all(
-                    //   color: Colors.white,
-                    //   width: width * 0.05,
-                    // ),
                     boxShadow: [
                       BoxShadow(
                           color: Colors.grey.shade200,
@@ -58,7 +55,6 @@ class _LessonViewState extends State<LessonView> {
                   child: widget.lessons[globalIndex].description.isNotEmpty
                       ? Column(
                           textDirection: TextDirection.rtl,
-                          // mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Expanded(
@@ -66,7 +62,6 @@ class _LessonViewState extends State<LessonView> {
                                 name:
                                     '${widget.lessons[globalIndex].cover}$globalIndex.jpg',
                                 width: containerWidth,
-                                // height: containerHeight * 0.8,
                               ),
                             ),
                             Padding(
@@ -101,11 +96,23 @@ class _LessonViewState extends State<LessonView> {
                   mainAxisSpacing: 5,
                 ),
                 itemBuilder: (context, index) => LessonItem(
+                  buttonColor: checkClicks.contains(widget.lessons[index].name)
+                      ? Colors.green
+                      : Colors.orange,
                   label: widget.lessons[index].name,
                   tap: () {
                     log('globalIndex $globalIndex');
                     setState(() {
-                      globalIndex = index;
+                      SharedPreference.addValue(SharedPreference.checkClicks,
+                              widget.lessons[index].name)
+                          .then((value) {
+                        SharedPreference.getStringList(
+                                SharedPreference.checkClicks)
+                            .then((value) {
+                          checkClicks = value;
+                          globalIndex = index;
+                        });
+                      });
                     });
                   },
                 ),

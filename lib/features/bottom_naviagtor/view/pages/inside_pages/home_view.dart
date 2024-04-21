@@ -7,19 +7,19 @@ class Home extends StatelessWidget {
   const Home({super.key});
  static const List<Widget> _levelsItems = [
     LevelItem(
-      title: 'سهل',
+      title: 'القسم الإبتدائى',
       levelCategories: Levels.easy,
-      colors: Colors.blue,
+      colors: Colors.yellow,
     ),
     LevelItem(
-      title: 'متوسط',
+      title: 'القسم المتوسط',
       levelCategories: Levels.medium,
-      colors: Color.fromARGB(255, 25, 118, 210),
+      colors: Colors.orange,
     ),
     LevelItem(
-      title: 'صعب',
+      title: 'القسم المتطور',
       levelCategories: Levels.hard,
-      colors: Color.fromARGB(255, 12, 70, 156),
+      colors: Colors.red,
     ),
   ];
   @override

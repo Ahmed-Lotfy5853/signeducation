@@ -11,8 +11,7 @@ import 'enums.dart';
 SelectedItemProiver providerItemSelected(context) =>
     Provider.of<SelectedItemProiver>(context);
 bool checkLogin = false;
-var checkLevelCompeleted=<String>[];
-
+List<String> checkClicks = [];
 const Map<Levels, List<Categories>> levelsMap = {
   Levels.easy: [
     Categories.numbers,
@@ -62,7 +61,7 @@ Map<Categories, CategoryItemModel> categoriesMap = {
       lessons: animals,
       backgroundColor: CupertinoColors.activeBlue),
   Categories.food: CategoryItemModel(
-      title: ' الطعام و أدواته',
+      title: 'الطعام و أدواته',
       cover: '${ImageManager.categories}4.png',
       category: Categories.food,
       lessons: food,
@@ -2097,3 +2096,34 @@ List<LessonModel> travelling = [
           "اجعل إصبعي السبابة و الإبهام لليد اليمنى منبسطين مع قبض باقي أصابع اليد ، بحيث تتجه اليد لأعلى ، ثم حرك اليد في اتجاه اليسار",
       cover: ImageManager.travelling),
 ];
+//titles for appbar in bottom navigation bar
+final appBarTitlies = [
+  'Help',
+  'Home',
+  'Back',
+  'القسم الإبتدائى',
+  'القسم المتوسط',
+  'القسم المتطور',
+  'الأرقام',
+  'الحروف',
+  'الاسرة والاصدقاء و الناس',
+  'الحيوانات',
+  'الطعام و أدواته',
+  'المنزل و الملابس و الألوان',
+  'الزمن و فصول السنه',
+  'التربية و التعليم',
+  'الصحة و الطوارئ',
+  'الأفكار و الانفعالات',
+  'المترادفات و المتضادات',
+  'الطبيعة و البيئة',
+  'السفر و الاجازات و  الاتجاهات'
+];
+// reference
+String reference =
+    '''• Mickey Flodin, 1991," Signing Is Fun ",The Berkley Publishing Group,New Yourk. 
+• Mickey Flodin, 1992," Signing For Kids ",The Berkley Publishing Group,New Yourk. 
+• Mickey Flodin, 1994,Signing Mustrated: The Complete Learning Guide.",The Berkley Publishing Group,New Yourk.
+• Rod R. Butterworth,and Mickey Flodin, 1990,"The Pocket Dictionary of Signing."R.ed.,The Berkley Publishing Group,New Yourk. 
+• Rod R. Butterworth,and Mickey Flodin, 1992,"The Perigee Visual Dictionary of Signing",3rd Edition.,the Berkley Publishing Group,New Yourk.
+• Rod R. Butterworth,M. A, M. Ed.,and Mickey Flodin,1993,"Signing Made Easy".,The Berkley publishing Group,New Yourk.
+          ''';

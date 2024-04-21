@@ -17,16 +17,24 @@ class CategoryItem extends StatelessWidget {
   final Categories category;
   @override
   Widget build(BuildContext context) {
+    var provider = providerItemSelected(context);
     return InkWell(
       onTap: () {
+        print('Category');
         //check if element is existed before or not
-        if (!checkLevelCompeleted.contains(categoryItem.title)) {
-          checkLevelCompeleted.add(categoryItem.title);
-        }
         // set data ,then go lesson screen
-        SharedPreference.storeStringList('category', checkLevelCompeleted).then((value) {
-              Navigator.of(context).pushNamed(RoutePath.lesson,
-              arguments: categoriesMap[categoryItem.category]!.lessons);
+        SharedPreference.addValue(
+                SharedPreference.checkLevel, categoryItem.title)
+            .then((value) {
+          if (appBarTitlies
+              .contains(categoriesMap[categoryItem.category]!.title)) {
+            SharedPreference.getStringList(SharedPreference.checkClicks)
+                .then((value) {
+              checkClicks = value;
+              provider.currentItem(appBarTitlies
+                  .indexOf(categoriesMap[categoryItem.category]!.title));
+            });
+          }
         });
       },
       child: Column(

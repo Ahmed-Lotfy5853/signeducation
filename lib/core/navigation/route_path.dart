@@ -4,4 +4,6 @@ class RoutePath {
   static const bottomNavigator = 'navigator';
   static const lesson = 'lesson';
   static const welcome='welcome';
+  static const reference='reference';
+  static const about='about';
 }

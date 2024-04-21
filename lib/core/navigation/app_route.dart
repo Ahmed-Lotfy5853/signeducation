@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:signeducation/features/Dawer/about.dart';
+import 'package:signeducation/features/Dawer/reference.dart';
 import 'package:signeducation/features/lesson/models/lesson_model.dart';
 import 'package:signeducation/features/lesson/view/pages/lesson_view.dart';
 import 'package:signeducation/features/bottom_naviagtor/view/pages/bottom_navigator_view.dart';
@@ -24,6 +26,8 @@ class AppRoute {
         return
             // CustomPageRoute(const LoginView());
             MaterialPageRoute(builder: (_) =>  BottomNavigationView());
+      case RoutePath.reference: return  MaterialPageRoute(builder: (_) => const ReferenceView()); ;      
+      case RoutePath.about:return  MaterialPageRoute(builder: (_) =>  const AboutView());
       case RoutePath.lesson:
         List<LessonModel> argument = settings.arguments as List<LessonModel>;
         return

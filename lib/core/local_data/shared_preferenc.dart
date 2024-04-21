@@ -1,6 +1,8 @@
 import 'package:shared_preferences/shared_preferences.dart';
 class SharedPreference{
   static const loginUser='login';
+  static const checkLevel='category';
+  static const checkClicks='click';
 
  //get data
   static Future<bool?> getLogin()async
@@ -15,14 +17,23 @@ class SharedPreference{
     return await preferences.setBool(loginUser, check);
   }
 
-static Future<void> storeStringList(String key, List<String> value) async {
+static Future<bool> storeStringList( String key,List<String> updatelist) async {
   final prefs = await SharedPreferences.getInstance();
-  await prefs.setStringList(key, value);
+ return await prefs.setStringList(key, updatelist);
 }
 
-static Future<List<String>?> getStringList(String key) async {
+static Future<List<String>> getStringList(String key) async {
   final prefs = await SharedPreferences.getInstance();
-  return prefs.getStringList(key);
+  final List<String>? existList = prefs.getStringList(key);
+  return existList ?? [];
+}
+static Future<void> addValue(String key,String newValue) async {
+ final List<String>  existingList = await getStringList(key);
+  if(!existingList.contains(newValue))
+  {
+    existingList.add(newValue);
+    storeStringList(key,existingList);
+  }
 }
 
 }

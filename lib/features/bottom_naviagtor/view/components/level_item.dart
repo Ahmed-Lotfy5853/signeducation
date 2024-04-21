@@ -20,7 +20,7 @@ class LevelItem extends StatelessWidget {
     return Expanded(
       child: InkWell(
         onTap: () {
-          SharedPreference.getStringList('category').then((value) {
+          SharedPreference.getStringList(SharedPreference.checkLevel).then((value) {
             // check if len of list  = null 
             int length = value?.length??0 ;
             if (levelCategories == Levels.easy) {
