@@ -32,7 +32,7 @@ class LevelItem extends StatelessWidget {
             } else if (levelCategories == Levels.hard) {
               length >= 7
                   ? provider.currentItem(5)
-                  : toast('يجب عليك ان إجتياز المستوى السهل والمتوسط أولا',context);
+                  : toast('يجب عليك ان إجتياز المستوى المتوسط أولا',context);
             }
           });
         },
