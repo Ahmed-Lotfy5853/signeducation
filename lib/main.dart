@@ -8,12 +8,11 @@ import 'core/navigation/app_route.dart';
 import 'core/navigation/route_path.dart';
 
 void main() {
-    WidgetsFlutterBinding.ensureInitialized();
-    SharedPreference.getLogin().then((value) {
-      checkLogin=value??false;
-       runApp(const MyApp());
-    });
- 
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreference.getLogin().then((value) {
+    checkLogin = value ?? false;
+    runApp(const MyApp());
+  });
 }
 
 class MyApp extends StatelessWidget {
@@ -38,5 +37,5 @@ class MyApp extends StatelessWidget {
         // home: const SplashView(),
       ),
     );
-  } 
+  }
 }

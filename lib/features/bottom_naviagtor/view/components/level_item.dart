@@ -22,7 +22,7 @@ class LevelItem extends StatelessWidget {
         onTap: () {
           SharedPreference.getStringList(SharedPreference.checkLevel).then((value) {
             // check if len of list  = null 
-            int length = value?.length??0 ;
+            int length = value.length ;
             if (levelCategories == Levels.easy) {
               provider.currentItem(3);
             } else if (levelCategories == Levels.medium) {

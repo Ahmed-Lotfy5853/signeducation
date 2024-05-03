@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:signeducation/core/local_data/shared_preferenc.dart';
-import 'package:signeducation/core/navigation/route_path.dart';
 import 'package:signeducation/core/resources/enums.dart';
 import 'package:signeducation/features/categories/models/category_item_model.dart';
 
@@ -20,7 +19,7 @@ class CategoryItem extends StatelessWidget {
     var provider = providerItemSelected(context);
     return InkWell(
       onTap: () {
-        print('Category');
+        
         //check if element is existed before or not
         // set data ,then go lesson screen
         SharedPreference.addValue(

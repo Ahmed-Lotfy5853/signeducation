@@ -26,6 +26,7 @@ class _LessonViewState extends State<LessonView> {
   Widget build(BuildContext context) {
     double width = getWidth(context);
     double containerWidth = width * 0.8;
+      print(widget.lessons.length);
     double containerHeight = getHeight(context) * 0.2;
     return Scaffold(
       body: SafeArea(
@@ -41,7 +42,8 @@ class _LessonViewState extends State<LessonView> {
                 padding: EdgeInsets.all(width * 0.05),
                 margin: const EdgeInsets.only(top: 10),
                 decoration: BoxDecoration(
-                    color: Colors.white,
+                  // check if user show all lesson or not ,so change its Color
+                    color: widget.lessons.length==checkClicks.length?Colors.green : Colors.orange,
                     borderRadius: BorderRadius.circular(15),
                     boxShadow: [
                       BoxShadow(
