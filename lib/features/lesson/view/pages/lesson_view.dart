@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:signeducation/core/local_data/shared_preferenc.dart';
 import 'package:signeducation/core/resources/constants.dart';
+import 'package:signeducation/core/resources/enums.dart';
 import 'package:signeducation/core/responsive_and_adaptive/responsive.dart';
 import 'package:signeducation/features/lesson/view/components/lesson_cover.dart';
 
@@ -13,8 +14,10 @@ class LessonView extends StatefulWidget {
   const LessonView({
     super.key,
     required this.lessons,
+    required this.categories,
   });
   final List<LessonModel> lessons;
+  final Categories categories;
   @override
   State<LessonView> createState() => _LessonViewState();
 }
@@ -26,7 +29,6 @@ class _LessonViewState extends State<LessonView> {
   Widget build(BuildContext context) {
     double width = getWidth(context);
     double containerWidth = width * 0.8;
-      print(widget.lessons.length);
     double containerHeight = getHeight(context) * 0.2;
     return Scaffold(
       body: SafeArea(
@@ -42,8 +44,10 @@ class _LessonViewState extends State<LessonView> {
                 padding: EdgeInsets.all(width * 0.05),
                 margin: const EdgeInsets.only(top: 10),
                 decoration: BoxDecoration(
-                  // check if user show all lesson or not ,so change its Color
-                    color: widget.lessons.length==checkClicks.length?Colors.green : Colors.orange,
+                    // check if user show all lesson or not ,so change its Color
+                    color: widget.lessons.length == checkClicks.length
+                        ? Colors.green
+                        : Colors.orange,
                     borderRadius: BorderRadius.circular(15),
                     boxShadow: [
                       BoxShadow(
@@ -108,11 +112,12 @@ class _LessonViewState extends State<LessonView> {
                   tap: () {
                     log('globalIndex $globalIndex');
                     setState(() {
-                      SharedPreference.addValue(SharedPreference.checkClicks,
+                      SharedPreference.addValue(
+                              widget.categories.name.toString(),
                               widget.lessons[index].name)
                           .then((value) {
                         SharedPreference.getStringList(
-                                SharedPreference.checkClicks)
+                                widget.categories.name.toString())
                             .then((value) {
                           checkClicks = value;
                           globalIndex = index;

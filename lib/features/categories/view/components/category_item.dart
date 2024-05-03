@@ -27,7 +27,7 @@ class CategoryItem extends StatelessWidget {
             .then((value) {
           if (appBarTitlies
               .contains(categoriesMap[categoryItem.category]!.title)) {
-            SharedPreference.getStringList(SharedPreference.checkClicks)
+            SharedPreference.getStringList(category.name.toString())
                 .then((value) {
               checkClicks = value;
               provider.currentItem(appBarTitlies
