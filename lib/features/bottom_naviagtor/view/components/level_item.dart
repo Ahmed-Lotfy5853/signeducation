@@ -22,7 +22,7 @@ class LevelItem extends StatelessWidget {
         onTap: () {
           SharedPreference.getStringList(SharedPreference.checkLevel).then((value) {
             // check if len of list  = null 
-            int length = value?.length??0 ;
+            int length = value.length ;
             if (levelCategories == Levels.easy) {
               provider.currentItem(3);
             } else if (levelCategories == Levels.medium) {
@@ -32,7 +32,7 @@ class LevelItem extends StatelessWidget {
             } else if (levelCategories == Levels.hard) {
               length >= 7
                   ? provider.currentItem(5)
-                  : toast('يجب عليك ان إجتياز المستوى السهل والمتوسط أولا',context);
+                  : toast('يجب عليك ان إجتياز المستوى المتوسط أولا',context);
             }
           });
         },

@@ -15,9 +15,9 @@ class AppRoute {
     switch (settings.name) {
       //Core
       case RoutePath.splash:
-        return MaterialPageRoute(builder: (_) =>  const SplashView());
-      case RoutePath.welcome :
-      return MaterialPageRoute(builder: (_) => const WelcomeView());
+        return MaterialPageRoute(builder: (_) => const SplashView());
+      case RoutePath.welcome:
+        return MaterialPageRoute(builder: (_) => const WelcomeView());
       case RoutePath.main:
         return
             // CustomPageRoute(const LoginView());
@@ -25,9 +25,11 @@ class AppRoute {
       case RoutePath.bottomNavigator:
         return
             // CustomPageRoute(const LoginView());
-            MaterialPageRoute(builder: (_) =>  BottomNavigationView());
-      case RoutePath.reference: return  MaterialPageRoute(builder: (_) => const ReferenceView()); ;      
-      case RoutePath.about:return  MaterialPageRoute(builder: (_) =>  const AboutView());
+            MaterialPageRoute(builder: (_) => BottomNavigationView());
+      case RoutePath.reference:
+        return MaterialPageRoute(builder: (_) => const ReferenceView());
+      case RoutePath.about:
+        return MaterialPageRoute(builder: (_) => const AboutView());
       case RoutePath.lesson:
         List<LessonModel> argument = settings.arguments as List<LessonModel>;
         return

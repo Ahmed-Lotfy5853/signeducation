@@ -1,4 +1,5 @@
 import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:signeducation/core/local_data/shared_preferenc.dart';
 import 'package:signeducation/core/resources/constants.dart';
@@ -19,12 +20,12 @@ class LessonView extends StatefulWidget {
 }
 
 class _LessonViewState extends State<LessonView> {
-  int globalIndex = 0;
-
+  int? globalIndex;
   @override
   Widget build(BuildContext context) {
     double width = getWidth(context);
     double containerWidth = width * 0.8;
+      print(widget.lessons.length);
     double containerHeight = getHeight(context) * 0.2;
     return Scaffold(
       body: SafeArea(
@@ -40,7 +41,8 @@ class _LessonViewState extends State<LessonView> {
                 padding: EdgeInsets.all(width * 0.05),
                 margin: const EdgeInsets.only(top: 10),
                 decoration: BoxDecoration(
-                    color: Colors.white,
+                  // check if user show all lesson or not ,so change its Color
+                    color: widget.lessons.length==checkClicks.length?Colors.green : Colors.orange,
                     borderRadius: BorderRadius.circular(15),
                     boxShadow: [
                       BoxShadow(
@@ -52,37 +54,39 @@ class _LessonViewState extends State<LessonView> {
                   decoration: BoxDecoration(
                       color: Colors.black,
                       borderRadius: BorderRadius.circular(15)),
-                  child: widget.lessons[globalIndex].description.isNotEmpty
-                      ? Column(
-                          textDirection: TextDirection.rtl,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Expanded(
-                              child: LessonCover(
-                                name:
-                                    '${widget.lessons[globalIndex].cover}$globalIndex.jpg',
-                                width: containerWidth,
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                  right: 8.0, left: 8.0, bottom: 8.0),
-                              child: Text(
-                                widget.lessons[globalIndex].description,
-                                textDirection: TextDirection.rtl,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyMedium!
-                                    .copyWith(color: Colors.white),
-                              ),
-                            ),
-                          ],
-                        )
-                      : LessonCover(
-                          name:
-                              '${widget.lessons[globalIndex].cover}$globalIndex.jpg',
-                          width: containerWidth,
-                          height: containerHeight * 0.8),
+                  child: globalIndex != null
+                      ? (widget.lessons[globalIndex!].description.isNotEmpty
+                          ? Column(
+                              textDirection: TextDirection.rtl,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Expanded(
+                                  child: LessonCover(
+                                    name:
+                                        '${widget.lessons[globalIndex!].cover}$globalIndex.jpg',
+                                    width: containerWidth,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      right: 8.0, left: 8.0, bottom: 8.0),
+                                  child: Text(
+                                    widget.lessons[globalIndex!].description,
+                                    textDirection: TextDirection.rtl,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodyMedium!
+                                        .copyWith(color: Colors.white),
+                                  ),
+                                ),
+                              ],
+                            )
+                          : LessonCover(
+                              name:
+                                  '${widget.lessons[globalIndex!].cover}$globalIndex.jpg',
+                              width: containerWidth,
+                              height: containerHeight * 0.8))
+                      : null,
                 ),
               ),
               Expanded(

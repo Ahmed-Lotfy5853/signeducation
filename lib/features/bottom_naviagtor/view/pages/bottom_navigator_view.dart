@@ -78,7 +78,7 @@ class BottomNavigationView extends StatelessWidget {
                         leading: iconsDrawe[index],
                       ),
                     ),
-                separatorBuilder: (_, int index) => Divider(),
+                separatorBuilder: (_, int index) =>const Divider(),
                 itemCount: 3),
           ),
         ),
