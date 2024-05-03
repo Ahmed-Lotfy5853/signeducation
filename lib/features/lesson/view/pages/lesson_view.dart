@@ -24,6 +24,7 @@ class LessonView extends StatefulWidget {
 
 class _LessonViewState extends State<LessonView> {
   int? globalIndex;
+
   @override
   Widget build(BuildContext context) {
     double width = getWidth(context);
